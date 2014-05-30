@@ -1,9 +1,9 @@
 var tprng = require('./');
 
-init(tprng, 600, 1, 'Tetris seed, 16 bits, (range 0-65535)', 65000);
-init(tprng.seeded(0x8988, 1, 9, 31), 600, 1, 'Tetris seed, 32 bits');
+init(tprng, 900, 1, 'Tetris seed, 16 bits, (range 0-65535)', 65000);
+init(tprng.seeded(0x8988, 1, 9, 31), 900, 1, 'Tetris seed, 32 bits');
 //init(tprng.seeded(0x0, 1, 9, 31), 600, 1, '0 seed, 32 bits');
-init(tprng.seeded(0xFFFFFFFF, 1, 9, 31), 600, 1, '0xFFFFFFFF seed, 32 bits');
+init(tprng.seeded(0xFFFFFFFF, 1, 9, 31), 900, 1, '0xFFFFFFFF seed, 32 bits');
 //init(tprng.seeded(0x1, 1, 9, 31), 600, 1, '0x1 seed, 32 bits');
 
 function init(gen, renderWidth, renderHeight, label, scale) {
@@ -21,10 +21,12 @@ function init(gen, renderWidth, renderHeight, label, scale) {
   document.body.appendChild(container);
 
   var style = document.createElement('style');
-  style.textContent = 'p { margin-top: 0; font-size: 10px; }';
+  style.textContent = ''
+    + 'p { margin-top: 0; font-size: 120%; }'
+    + 'canvas { -webkit-transform: scaleY(10); transform: scaleY(10); }';
   document.head.appendChild(style);
 
-  var lastNumbers = Array(10000).join(0).split('').map(function() { return -1 });
+  var lastNumbers = Array(1000).join(0).split('').map(function() { return -1 });
 
   (function render() {
     lastNumbers.shift();
@@ -43,10 +45,10 @@ function init(gen, renderWidth, renderHeight, label, scale) {
 
       //if (x > 1) debugger;
       // HSL: hue 0-360, saturation 0-100%, lightness 0-100%
-      imgdata.data[x+0] = 0;
-      imgdata.data[x+1] = 0;
-      imgdata.data[x+2] = 0;
-      imgdata.data[x+3] = alpha;
+      //imgdata.data[x+0] = 0;
+      //imgdata.data[x+1] = 0;
+      //imgdata.data[x+2] = 0;
+      imgdata.data[x*4+3] = alpha;
     }
 
     ctx.putImageData(imgdata, 0, 0);
