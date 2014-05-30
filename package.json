@@ -1,0 +1,31 @@
+{
+  "name": "tetris-prng",
+  "version": "0.0.0",
+  "description": "A Fibonacci linear feedback shift register used as a PRNG (Pseudo-random Number Generator), as in NES Tetris.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js",
+    "chart": "beefy chart.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kirbysayshi/tetris-prng.git"
+  },
+  "keywords": [
+    "prng",
+    "tetris",
+    "lfsr",
+    "random-not-random"
+  ],
+  "author": "Drew Petersen <kirbysayshi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kirbysayshi/tetris-prng/issues"
+  },
+  "homepage": "https://github.com/kirbysayshi/tetris-prng",
+  "devDependencies": {
+    "beefy": "^1.1.0",
+    "browserify": "^4.1.6",
+    "tape": "^2.13.1"
+  }
+}
