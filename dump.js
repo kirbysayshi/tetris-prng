@@ -1,6 +1,6 @@
 
-//var tprng = require('./').seeded(0xFFFFFFFF, 1, 9, 31);
-var tprng = require('./').seeded(0x8988, 1, 9, 31);
+//var tprng = require('./').lfsr(0xFFFFFFFF, [1, 9], 31);
+var tprng = require('./').lfsr(0x1, [1, 9], 15);
 
 var max = 0;
 var min = Number.MAX_VALUE;
