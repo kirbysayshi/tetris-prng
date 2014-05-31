@@ -69,7 +69,9 @@ $ npm test
 notes
 -----
 
-Running `npm run chart` will use [beefy](https://github.com/chrisdickinson/beefy) to serve a visualization of the distribution of a few different seed/tap combinations over time.
+Running `npm run chart` will use [beefy](https://github.com/chrisdickinson/beefy) to serve a visualization of the distribution of a few different seed/tap combinations over time. Each graph shows newly generated numbers in black, and then they fade over time. This shows how different seed/tap combinations cluster.
+
+![A visualization of various lsfr combinations](images/visualization.png)
 
 LFSRs generate a cyclic sequence of numbers, and are thus not cryptographically secure. However they can be used for games, especially when combined with user-input as a form of randomness. For example, one could trigger the LFSR each frame (or multiple times a frame), but only sample it when the user takes action, thus using time between actions as a form of random input.
 
