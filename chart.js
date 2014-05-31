@@ -1,10 +1,12 @@
 var tprng = require('./');
 
 init(tprng, 900, 1, 'Tetris seed, 16 bits, (range 0-65535)', 65000);
-init(tprng.seeded(0x8988, 1, 9, 31), 900, 1, 'Tetris seed, 32 bits');
+init(tprng.lfsr(0x8988, [1, 9], 31), 900, 1, 'Tetris seed, 32 bits');
 //init(tprng.seeded(0x0, 1, 9, 31), 600, 1, '0 seed, 32 bits');
-init(tprng.seeded(0xFFFFFFFF, 1, 9, 31), 900, 1, '0xFFFFFFFF seed, 32 bits');
-//init(tprng.seeded(0x1, 1, 9, 31), 600, 1, '0x1 seed, 32 bits');
+init(tprng.lfsr(0xFFFFFFFF, [1, 9], 31), 900, 1, '0xFFFFFFFF seed, 32 bits');
+init(tprng.lfsr(0x8988, [16,15,13,4], 31), 900, 1, 'Tetris seed, 4 taps, 32 bits');
+init(tprng.lfsr(0xFFFFFFFF, [16,15,13,4], 31), 900, 1, '0xFFFFFFFF seed, 4 taps, 32 bits');
+init(tprng.lfsr(0x11, [16,15,13,4], 31), 900, 1, '0x11 seed, 4 taps, 32 bits');
 
 function init(gen, renderWidth, renderHeight, label, scale) {
   scale = scale || 1;
@@ -43,11 +45,6 @@ function init(gen, renderWidth, renderHeight, label, scale) {
 
       if (x < 0) continue;
 
-      //if (x > 1) debugger;
-      // HSL: hue 0-360, saturation 0-100%, lightness 0-100%
-      //imgdata.data[x+0] = 0;
-      //imgdata.data[x+1] = 0;
-      //imgdata.data[x+2] = 0;
       imgdata.data[x*4+3] = alpha;
     }
 
