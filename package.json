@@ -1,6 +1,6 @@
 {
   "name": "tetris-prng",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Fibonacci linear feedback shift register used as a PRNG (Pseudo-random Number Generator), as in NES Tetris.",
   "main": "index.js",
   "scripts": {
